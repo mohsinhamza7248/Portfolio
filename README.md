@@ -1,4 +1,4 @@
-Here’s a professional and well-structured **`README.md`** file for your **portfolio repository**:
+
 
 ---
 
@@ -6,7 +6,7 @@ Here’s a professional and well-structured **`README.md`** file for your **port
 
 Welcome to my **personal portfolio website**! 🎨🚀 This website showcases my **skills, experience, and projects** as a **Full-Stack Developer** specializing in **React.js, Next.js, Nest.js, and Tailwind CSS**.
 
-🔹 **Live Demo:** [View My Portfolio](https://your-portfolio.netlify.app/) _(Replace with actual URL)_
+🔹 **Live Demo:** [View My Portfolio]((https://mohsin-portfolioo.netlify.app/))
 
 ---
 
@@ -39,7 +39,7 @@ Welcome to my **personal portfolio website**! 🎨🚀 This website showcases my
 1️⃣ **Clone the Repository**
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git clone https://github.com/mohsinhamza7248/Portfolio.git
 ```
 
 2️⃣ **Navigate to the Project Folder**
@@ -70,7 +70,7 @@ http://localhost:3000
 
 This portfolio is deployed on **Netlify** with GitHub integration. Every time I push new code, the website automatically updates! 🔥
 
-🔹 **Live URL:** [https://your-portfolio.netlify.app/](https://your-portfolio.netlify.app/) _(Replace with actual URL)_
+🔹 **Live URL:** [https://your-portfolio.netlify.app/](https://mohsin-portfolioo.netlify.app/))
 
 ---
 
