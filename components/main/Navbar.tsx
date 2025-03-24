@@ -1,58 +1,80 @@
-import { Socials } from '@/constants'
-import Image from 'next/image'
-import React from 'react'
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import React, { useState } from "react";
+import { FaGithub, FaInstagram, FaLinkedin, FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-    return (
-        <div className='w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10'>
-            <div className='w-full h-full flex flex-row items-center justify-between m-auto px-[10px]'>
-                <a href='#about-me'
-                    className='h-auto w-auto flex flex-row items-center'
-                >
-                    <Image
-                        src="/NavLogo.png"
-                        alt='logo'
-                        width={70}
-                        height={70}
-                        className='cursor-pointer hover:animate-slowspin'
+    const [isOpen, setIsOpen] = useState(false);
 
+    return (
+        <nav className="w-full fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-5 md:px-10">
+            <div className="flex justify-between items-center h-[65px]">
+                {/* Logo + Name */}
+                <a href="#about-me" className="flex items-center">
+                    <Image
+                        src="/logo-1.png"
+                        alt="logo"
+                        width={50}
+                        height={50}
+                        className="cursor-pointer hover:animate-slowspin"
                     />
-                    <span className='font-bold ml-[8px] hidden md:block text-gray-300'>
-                        constGenius
-                    </span>
+                    <span className="font-bold ml-2 text-gray-300">Mohsin Ansari</span>
                 </a>
 
-                <div className='w-[500px] h-full flex flex-row items-center justify-between md:mr-20'>
-                    <div className='flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200'>
-                        <a href='#about-me' className='cursor-pointer'>
-                            About me
-                        </a>
-                        <a href='#skills' className='cursor-pointer'>
-                            Skills
-                        </a>
-                        <a href='#projects' className='cursor-pointer'>
-                            Projects
-                        </a>
+                {/* Desktop Navigation (Same Styling as You Wanted) */}
+                <div className="hidden md:flex w-[500px] h-full items-center justify-between md:mr-20">
+                    <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200">
+                        <a href="#about-me" className="cursor-pointer">About Me</a>
+                        <a href="#skills" className="cursor-pointer">Skills</a>
+                        <a href="#experience" className="cursor-pointer">Experience</a>
+                        <a href="#projects" className="cursor-pointer">Projects</a>
                     </div>
                 </div>
 
-                <div className='flex flex-row gap-5'>
-                    {Socials.map((social) => (
-                        <Image
-                            src={social.src}
-                            alt={social.name}
-                            key={social.name}
-                            width={24}
-                            height={24}
-                        />
-                    ))}
+                {/* Social Icons (Desktop) */}
+                <div className="hidden md:flex space-x-4">
+                    <Link href="https://www.instagram.com/mohsin_ansari_20" target="_blank">
+                        <FaInstagram className="text-pink-500" size={25} />
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/mohsin-ansari-195817254/" target="_blank">
+                        <FaLinkedin className="text-blue-500" size={25} />
+                    </Link>
+                    <Link href="https://github.com/mohsinhamza7248" target="_blank">
+                        <FaGithub className="text-white" size={25} />
+                    </Link>
                 </div>
 
-
+                {/* Mobile Menu Button */}
+                <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+                    {isOpen ? <FaTimes size={25} /> : <FaBars size={25} />}
+                </button>
             </div>
 
-        </div>
-    )
-}
+            {/* Mobile Dropdown Menu */}
+            {isOpen && (
+                <div className="md:hidden absolute top-16 left-0 w-full bg-[#030014] backdrop-blur-md py-4 text-center">
+                    <a href="#about-me" className="block py-2 text-gray-300 hover:text-blue-400" onClick={() => setIsOpen(false)}>About Me</a>
+                    <a href="#skills" className="block py-2 text-gray-300 hover:text-blue-400" onClick={() => setIsOpen(false)}>Skills</a>
+                    <a href="#experience" className="block py-2 text-gray-300 hover:text-blue-400" onClick={() => setIsOpen(false)}>Experience</a>
+                    <a href="#projects" className="block py-2 text-gray-300 hover:text-blue-400" onClick={() => setIsOpen(false)}>Projects</a>
 
-export default Navbar
+                    <div className="flex justify-center gap-5 mt-4">
+                        <Link href="https://www.instagram.com/mohsin_ansari_20" target="_blank">
+                            <FaInstagram className="text-pink-500" size={25} />
+                        </Link>
+                        <Link href="https://www.linkedin.com/in/mohsin-ansari-195817254/" target="_blank">
+                            <FaLinkedin className="text-blue-500" size={25} />
+                        </Link>
+                        <Link href="https://github.com/mohsinhamza7248" target="_blank">
+                            <FaGithub className="text-white" size={25} />
+                        </Link>
+                    </div>
+                </div>
+            )}
+        </nav>
+    );
+};
+
+export default Navbar;

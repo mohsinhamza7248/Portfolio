@@ -8,7 +8,7 @@ import Footer from "@/components/main/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Space Portfolio",
+  title: "Mohsin Portfolio",
   description: "This is my portfolio",
 };
 
@@ -19,10 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#030014] overflow-y-scroll overflow-x-hidden`}>
-        <StarCanvas />
+      <body className={`${inter.className} bg-[#030014] relative`}>
+        {/* StarCanvas z-index fix */}
+        <div className="absolute top-0 left-0 w-full h-full -z-10">
+          <StarCanvas />
+        </div>
+
         <Navbar />
-        {children}
+        <main className="relative z-10">{children}</main>
         <Footer />
       </body>
     </html>

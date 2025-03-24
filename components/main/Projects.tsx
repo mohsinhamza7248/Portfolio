@@ -7,21 +7,44 @@ const Projects = () => {
             <h1 className='text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20'>
                 My Projects
             </h1>
-            <div className='h-full w-full flex flex-col md:flex-row gap-10 px-10'>
+
+            {/* Grid Layout for 3 Rows */}
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-10'>
                 <ProjectCard
-                    src='/FigmaClone.png'
-                    title='Figma Clone'
-                    description='Figma Clone using Next.js 14, Tailwind CSS, Liveblocks,Fabric'
+                    src='/digital.png'
+                    title='Digital Website'
+                    description='Digital Website using HTML, CSS'
+                    link='https://digital-marketing-122.netlify.app/'
                 />
                 <ProjectCard
-                    src='/TravelWebsite.png'
-                    title='Travel Website'
-                    description='Travel Website Using Next.js 14, Tailwind CSS, TypeScript'
+                    src='/restaurant.png'
+                    title='Restaurant'
+                    description='Restaurant Using React, MUI CSS, Mock API'
+                    link='https://1restaurant1122.netlify.app'
                 />
                 <ProjectCard
-                    src='/YoutubeClone.png'
-                    title='Youtube Clone'
-                    description='Youtube Clone Using React, Tailwind CSS, TypeScript'
+                    src='/amazon.png'
+                    title='Amazon Clone'
+                    description='Amazon Clone Using HTML, CSS'
+                    link='amazon2211.netlify.app'
+                />
+                <ProjectCard
+                    src='/gym.png'
+                    title='Gym Clone'
+                    description='Gym Using HTML, Bootstrap CSS'
+                    link='gym21022.netlify.app'
+                />
+                <ProjectCard
+                    src='/port-1.png'
+                    title='Portfolio Clone'
+                    description='Portfolio Website Using HTML, CSS, JavaScript'
+                    link='https://portfolio-mohsin2.netlify.app/'
+                />
+                <ProjectCard
+                    src='/todo.png'
+                    title='YouTube Clone'
+                    description='YouTube Clone Using React, CSS'
+                    link='https://todo-list-1-react.netlify.app/'
                 />
             </div>
         </div>
