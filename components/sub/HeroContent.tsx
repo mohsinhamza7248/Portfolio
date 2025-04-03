@@ -75,8 +75,9 @@ const HeroContent = () => {
                     {/* Download CV Button with Animation */}
                     <motion.a
                         variants={slideInFromLeft(1.2)}
-                        href="/cv.pdf"
-                        download="Mohsin_CV.pdf"
+                        href="https://drive.google.com/file/d/1nWjNKuuwG8NQw5qj-8ek65qoIls63JQh/view?usp=drivesdk"
+                        target="_blank" 
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.1, backgroundColor: "#6b46c1" }}
                         whileTap={{ scale: 0.95 }}
                         className='py-2 px-4 bg-purple-500 transition duration-300 text-center text-white cursor-pointer rounded-lg shadow-lg'
