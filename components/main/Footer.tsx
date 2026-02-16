@@ -3,81 +3,53 @@ import React from 'react';
 import { FaDiscord, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
+
     return (
-        <div className='w-full h-full bg-transparent text-gray-200 shadow-lg p-[15px]'>
-            <div className='w-full flex flex-col items-center justify-center m-auto'>
-                <div className='w-full h-full flex flex-row items-center justify-around flex-wrap'>
+        <footer className='w-full bg-surface/50 backdrop-blur-md border-t border-white/5 pt-10 pb-8 mt-20'>
+            <div className='max-w-7xl mx-auto px-5 md:px-10 flex flex-col items-center justify-between gap-10 md:flex-row'>
 
-                    {/* Community Section */}
-                    <div className='min-w-[200px] h-auto flex flex-col items-center justify-start'>
-                        <div className='font-bold text-[16px]'>Community</div>
-
-                        <Link
-                            href="https://github.com/mohsinhamza7248"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className='flex items-center my-[15px] cursor-pointer transition-all duration-300 transform hover:scale-110'
-                        >
-                            <FaGithub className='text-gray-300' />
-                            <span className='text-[15px] ml-[6px]'>Github</span>
-                        </Link>
-
-                        <Link
-                            href="https://discord.com/users/1087287832369963019"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className='flex items-center my-[15px] cursor-pointer transition-all duration-300 transform hover:scale-110'
-                        >
-                            <FaDiscord className='text-blue-500' />
-                            <span className='text-[15px] ml-[6px]'>Discord</span>
-                        </Link>
+                {/* Brand & Copyright */}
+                <div className="text-center md:text-left">
+                    <div className="font-bold text-xl tracking-tight text-white mb-2">
+                        Mohsin<span className="text-accent">.</span>
                     </div>
-
-                    {/* Social Media Section */}
-                    <div className='min-w-[200px] h-auto flex flex-col items-center justify-start'>
-                        <div className='font-bold text-[16px]'>Social Media</div>
-
-                        <Link
-                            href="https://www.instagram.com/mohsin_ansari_20?igsh=cHJqODg4aXJsd2dt"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className='flex items-center my-[15px] cursor-pointer transition-all duration-300 transform hover:scale-110'
-                        >
-                            <FaInstagram className='text-pink-500' />
-                            <span className='text-[15px] ml-[6px]'>Instagram</span>
-                        </Link>
-
-                        <Link
-                            href="https://www.linkedin.com/in/mohsin-ansari-195817254/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className='flex items-center my-[15px] cursor-pointer transition-all duration-300 transform hover:scale-110'
-                        >
-                            <FaLinkedin className='text-blue-700' />
-                            <span className='text-[15px] ml-[6px]'>LinkedIn</span>
-                        </Link>
-                    </div>
-
-                    {/* About Section */}
-                    <div className='min-w-[200px] h-auto flex flex-col items-center justify-start'>
-                        <div className='font-bold text-[16px]'>About</div>
-
-                        <p className='flex items-center my-[15px] cursor-pointer'>
-                            <span className='text-[15px] ml-[6px]'>Learning about me</span>
-                        </p>
-
-                        <p className='flex items-center my-[15px] cursor-pointer'>
-                            <span className='text-[15px] ml-[6px]'>mohsinhamza7248@gmail.com</span>
-                        </p>
-                    </div>
+                    <p className="text-gray-400 text-sm">
+                        Building digital experiences that matter.
+                    </p>
+                    <p className="text-gray-600 text-xs mt-4">
+                        &copy; {currentYear} Mohsin Ansari. All rights reserved.
+                    </p>
                 </div>
 
-                {/* Footer Text */}
-                <div className='mb-[20px] text-[15px] text-center'>
-                    &copy; 2024 Inc. All rights reserved
+                {/* Social Links */}
+                <div className="flex gap-6">
+                    <Link href="https://github.com/mohsinhamza7248" target="_blank" className="text-gray-400 hover:text-white transition-colors">
+                        <FaGithub size={24} />
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/mohsin-ansari-195817254/" target="_blank" className="text-gray-400 hover:text-blue-500 transition-colors">
+                        <FaLinkedin size={24} />
+                    </Link>
+                    <Link href="https://www.instagram.com/mohsin_ansari_20" target="_blank" className="text-gray-400 hover:text-pink-500 transition-colors">
+                        <FaInstagram size={24} />
+                    </Link>
+                    <Link href="https://discord.com/users/1087287832369963019" target="_blank" className="text-gray-400 hover:text-indigo-500 transition-colors">
+                        <FaDiscord size={24} />
+                    </Link>
+                </div>
+
+                {/* Contact CTA */}
+                <div className="text-center md:text-right">
+                    <p className="text-gray-400 text-sm mb-2">Ready to work together?</p>
+                    <a
+                        href="mailto:mohsinhamza7248@gmail.com"
+                        className="text-accent hover:text-primary transition-colors font-medium"
+                    >
+                        mohsinhamza7248@gmail.com
+                    </a>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 };
 

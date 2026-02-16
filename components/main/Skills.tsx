@@ -1,64 +1,67 @@
-import { Backend_skill, Frontend_skill, Full_stack, } from '@/constants'
+import { Backend_skill, Frontend_skill, Full_stack } from '@/constants'
 import React from 'react'
 import SkillsDataProvider from '../sub/SkillsDataProvider'
 import SkillText from '../sub/SkillText'
 
 const Skills = () => {
     return (
-        <section className='flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pb-110 py-20'
+        <section
+            className='flex flex-col items-center justify-center gap-6 h-full relative overflow-hidden pb-20 py-10'
             id='skills'
-            style={{ transform: "scale(0.9)" }}
-
         >
-
             <SkillText />
-            <div className='flex flex-row justify-around flex-wrap mt-4 gap-5 items-center'>
-                {Frontend_skill.map((image, index) => (
-                    <SkillsDataProvider
-                        key={index}
-                        src={image.Image}
-                        width={image.width}
-                        height={image.height}
-                        index={index}
-                    />
-                ))}
-            </div>
-            <div className='flex flex-row justify-around flex-wrap mt-4 gap-5 items-center'>
-                {Backend_skill.map((image, index) => (
-                    <SkillsDataProvider
-                        key={index}
-                        src={image.Image}
-                        width={image.width}
-                        height={image.height}
-                        index={index}
-                    />
-                ))}
-            </div>
-            <div className='flex flex-row justify-around flex-wrap mt-4 gap-5 items-center'>
-                {Full_stack.map((image, index) => (
-                    <SkillsDataProvider
-                        key={index}
-                        src={image.Image}
-                        width={image.width}
-                        height={image.height}
-                        index={index}
-                    />
-                ))}
-            </div>
 
+            <div className='flex flex-col items-center gap-10 mt-10 w-full max-w-6xl px-10'>
 
-            <div className='w-full h-full absolute'>
-                <div className='w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover'>
-                    <video
-                        className='w-full h-auto'
-                        preload='false'
-                        playsInline
-                        loop
-                        muted
-                        autoPlay
-                        src='/cards-video.webm'
+                {/* Frontend Section */}
+                <div className="flex flex-col items-center w-full">
+                    <h3 className="text-gray-400 text-sm tracking-widest uppercase mb-6">Frontend</h3>
+                    <div className='flex flex-row justify-center flex-wrap gap-5 items-center w-full'>
+                        {Frontend_skill.map((image, index) => (
+                            <SkillsDataProvider
+                                key={index}
+                                src={image.Image}
+                                width={image.width}
+                                height={image.height}
+                                index={index}
+                                name={image.skill_name}
+                            />
+                        ))}
+                    </div>
+                </div>
 
-                    />
+                {/* Backend Section */}
+                <div className="flex flex-col items-center w-full">
+                    <h3 className="text-gray-400 text-sm tracking-widest uppercase mb-6">Backend</h3>
+                    <div className='flex flex-row justify-center flex-wrap gap-5 items-center w-full'>
+                        {Backend_skill.map((image, index) => (
+                            <SkillsDataProvider
+                                key={index}
+                                src={image.Image}
+                                width={image.width}
+                                height={image.height}
+                                index={index}
+                                name={image.skill_name}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Full Stack / Tools Section */}
+                <div className="flex flex-col items-center w-full">
+                    <h3 className="text-gray-400 text-sm tracking-widest uppercase mb-6">Tools & Native</h3>
+                    <div className='flex flex-row justify-center flex-wrap gap-5 items-center w-full'>
+                        {Full_stack.map((image, index) => (
+                            <SkillsDataProvider
+                                key={index}
+                                src={image.Image}
+                                width={image.width}
+                                height={image.height}
+                                index={index}
+                                name={image.skill_name}
+                            />
+                        ))}
+                    </div>
                 </div>
 
             </div>

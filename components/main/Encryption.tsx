@@ -1,66 +1,75 @@
 "use client"
-
 import React from 'react'
-import { motion } from "framer-motion"
-import { slideInFromTop } from '@/utils/motion'
-import Image from 'next/image'
+import { motion } from 'framer-motion'
+import { slideInFromLeft, slideInFromRight } from '@/utils/motion'
+import { CubeIcon, CommandLineIcon, DevicePhoneMobileIcon } from '@heroicons/react/24/outline'
 
-const Encryption = () => {
+const Services = () => {
     return (
-        <div className='flex flex-row relative items-center justify-center min-h-screen w-full h-full'>
-            <div className='absolute w-auto h-auto top-0 z-[5]'>
-                <motion.div variants={slideInFromTop}
-                    className='text-[40px] font-medium text-center text-gray-200'
+        <section className='flex flex-col items-center justify-center py-20 relative z-20'>
+            <div className="text-center mb-12 max-w-[600px] px-4">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                    What I <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500">Deliver</span>
+                </h2>
+                <p className="text-gray-400">
+                    High-performance solutions tailored to business needs.
+                </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-10 max-w-7xl w-full">
+                {/* Service 1 */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={slideInFromLeft(0.2)}
+                    className="glass-card p-8 rounded-2xl border border-white/5 hover:border-accent/50 group flex flex-col items-center text-center"
                 >
-                    Performance
-                    <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500'>
-                        {" "}&{" "}
-                    </span>
-                    Security
+                    <div className="p-4 rounded-full bg-white/5 mb-6 group-hover:bg-accent/20 transition-colors">
+                        <CubeIcon className="w-10 h-10 text-purple-400 group-hover:text-accent transition-colors" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3">Full-Stack Scalability</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                        Building robust applications using Next.js and Nest.js with a focus on performance, SEO, and server-side rendering.
+                    </p>
+                </motion.div>
+
+                {/* Service 2 */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={slideInFromLeft(0.4)}
+                    className="glass-card p-8 rounded-2xl border border-white/5 hover:border-accent/50 group flex flex-col items-center text-center"
+                >
+                    <div className="p-4 rounded-full bg-white/5 mb-6 group-hover:bg-accent/20 transition-colors">
+                        <CommandLineIcon className="w-10 h-10 text-cyan-400 group-hover:text-accent transition-colors" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3">Clean Architecture</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                        Writing maintainable, type-safe code with TypeScript, implementing solid database schemas with Prisma and MongoDB.
+                    </p>
+                </motion.div>
+
+                {/* Service 3 */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={slideInFromRight(0.2)}
+                    className="glass-card p-8 rounded-2xl border border-white/5 hover:border-accent/50 group flex flex-col items-center text-center"
+                >
+                    <div className="p-4 rounded-full bg-white/5 mb-6 group-hover:bg-accent/20 transition-colors">
+                        <DevicePhoneMobileIcon className="w-10 h-10 text-pink-400 group-hover:text-accent transition-colors" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3">Modern UI/UX</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                        Crafting pixel-perfect, responsive interfaces with Tailwind CSS and Framer Motion that feel premium and interactive.
+                    </p>
                 </motion.div>
             </div>
-            <div className='flex flex-col items-center justify-center translate-y-[-50px] absolute z-[20] w-auto h-auto'>
-                <div className='flex flex-col items-center group cursor-pointer w-auto h-auto'>
-                    <Image
-                        src="/LockTop.png"
-                        alt='Lock top'
-                        width={50}
-                        height={50}
-                        className='w-[50px] translate-y-5 transition-all duration-200 group-hover:translate-y-11'
-                    />
-                    <Image
-                        src="/LockMain.png"
-                        alt='Lock main'
-                        width={70}
-                        height={70}
-                        className='z-10'
-                    />
-                </div>
-
-                <div className='Welcome-box px-[15px] py-[4px] z-[20] border my-[20px] border-[#7042f88b] opacity-[0.9]'>
-                    <h1 className='Welcome-text text-[12px]'>Encryption</h1>
-                </div>
-
-            </div>
-            <div className='absolute z-[20] bottom-[10px] px-[5px]'>
-                <div className='cursive text-[20px] font-medium text-center text-gray-300'>
-                    Secure your data with end-to-end encryption
-                </div>
-
-            </div>
-            <div className='w-full flex items-start justify-center absolute'>
-                <video
-                    loop
-                    muted
-                    autoPlay
-                    playsInline
-                    preload='false'
-                    className='w-full h-auto'
-                    src='/encryption.webm'
-                />
-            </div>
-        </div>
+        </section>
     )
 }
 
-export default Encryption
+export default Services

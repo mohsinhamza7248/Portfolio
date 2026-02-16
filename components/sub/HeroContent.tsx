@@ -1,53 +1,39 @@
 "use client"
 
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import { slideInFromLeft, slideInFromRight, slideInFromTop } from '@/utils/motion'
 import { SparklesIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
+import { TypeAnimation } from 'react-type-animation'
 
 const HeroContent = () => {
-    const fullText = `I'm Mohsin, a passionate Full-Stack Developer with hands-on experience in building dynamic web applications. 
-    Currently working as a Junior Fullstack Developer at CodeVamp Technologies, I specialize in developing scalable solutions using modern frameworks like React.js, Next.js, Nest.js, and Node.js.
-
-    With over 6 months of experience, I've contributed to numerous projects, ensuring optimal performance, responsiveness, and seamless user experiences. 
-    My strong background in MongoDB, PostgreSQL, and Prisma ORM empowers me to manage data effectively while maintaining clean and efficient code.
-
-    Beyond coding, I excel at collaboration — actively participating in cross-functional teams using Jira for task management and Git/GitHub for version control. 
-    My dedication to learning and problem-solving drives me to stay ahead of industry trends.
-
-    Let's build something amazing together! 🚀`;
-
-    const wordCount = fullText.split(/\s+/).length;
-    const [showFullText, setShowFullText] = useState(false);
-
     return (
         <motion.div
             initial="hidden"
             animate="visible"
-            className='flex flex-row items-center justify-center px-20 mt-30 pt-32 w-full z-[20]'
+            className='flex flex-row items-center justify-center px-5 md:px-20 mt-40 w-full z-[20]'
         >
             <div className='h-full w-full flex flex-col gap-5 justify-center m-auto text-start'>
                 <motion.div
                     variants={slideInFromTop}
-                    className='Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]'
+                    className='Welcome-box py-[8px] px-[10px] border border-accent/30 opacity-[0.9] bg-surface/50 backdrop-blur-md'
                 >
-                    <SparklesIcon className='text-[#b49bff] mr-[10px] h-5 w-5' />
-                    <h1 className='Welcome-text text-[13px]'>
-                        Fullstack Developer
+                    <SparklesIcon className='text-accent mr-[10px] h-5 w-5' />
+                    <h1 className='text-gray-300 text-[13px] font-medium tracking-wide uppercase'>
+                        Fullstack Developer Portfolio
                     </h1>
                 </motion.div>
 
                 <motion.div
                     variants={slideInFromLeft(0.5)}
-                    className='flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto'
+                    className='flex flex-col gap-6 mt-6 text-5xl md:text-7xl font-bold text-white max-w-[600px] w-auto h-auto leading-tight'
                 >
                     <span>
-                        Delivering
-                        <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500'>
-                            {" "}innovative{" "}
+                        Building
+                        <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500 block md:inline md:pl-2'>
+                            Digital Experiences
                         </span>
-                        web solutions
                     </span>
                 </motion.div>
 
@@ -55,46 +41,58 @@ const HeroContent = () => {
                     variants={slideInFromLeft(0.8)}
                     className='text-lg text-gray-400 my-5 max-w-[600px]'
                 >
-                    {showFullText ? fullText : `${fullText.split(" ").slice(0, 50).join(" ")}...`}
+                    I&apos;m Mohsin, a Full-Stack Developer specializing in building scalable web applications with Next.js, React, and Nest.js.
+                    <br className="hidden md:block" />
+                    Turning complex problems into elegant, high-performance solutions.
                 </motion.p>
 
-                {/* Buttons Section */}
-                <div className="flex gap-4">
-                    {wordCount > 50 && (
-                        <motion.button
-                            variants={slideInFromLeft(1)}
-                            onClick={() => setShowFullText(!showFullText)}
-                            whileHover={{ scale: 1.1, backgroundColor: "#6b46c1" }}
-                            whileTap={{ scale: 0.95 }}
-                            className='py-2 px-4 bg-purple-500 transition duration-300 text-center text-white cursor-pointer rounded-lg shadow-lg'
-                        >
-                            {showFullText ? "Show Less" : "Learn More"}
-                        </motion.button>
-                    )}
+                <motion.div
+                    variants={slideInFromLeft(1)}
+                    className="text-xl text-gray-300 font-medium h-8"
+                >
+                    <TypeAnimation
+                        sequence={[
+                            "React & Next.js Expert",
+                            2000,
+                            "Nest.js & MongoDB Backend",
+                            2000,
+                            "Scalable Architecture",
+                            2000,
+                        ]}
+                        wrapper="span"
+                        speed={50}
+                        repeat={Infinity}
+                        className="text-accent"
+                    />
+                </motion.div>
 
-                    {/* Download CV Button with Animation */}
-                    <motion.a
-                        variants={slideInFromLeft(1.2)}
-                        href="/cv.pdf"
-                        download="Mohsin_CV.pdf"
-                        whileHover={{ scale: 1.1, backgroundColor: "#6b46c1" }}
-                        whileTap={{ scale: 0.95 }}
-                        className='py-2 px-4 bg-purple-500 transition duration-300 text-center text-white cursor-pointer rounded-lg shadow-lg'
-                    >
-                        Download CV
-                    </motion.a>
-                </div>
+                <motion.div
+                    variants={slideInFromLeft(1.2)}
+                    className="flex flex-col md:flex-row gap-5 mt-4"
+                >
+                    <a href="#projects" className="btn-primary py-3 px-8 rounded-lg cursor-pointer text-center font-medium shadow-lg hover:shadow-accent/20">
+                        View My Work
+                    </a>
+                    <a href="https://drive.google.com/file/d/1-z9P7n43FXcHC8dWjlL3_fe1YbBrTBMT/view?usp=drive_link" download="Mohsin_CV.pdf" className="btn-secondary py-3 px-8 rounded-lg cursor-pointer text-center font-medium">
+                        View CV
+                    </a>
+                </motion.div>
             </div>
 
             <motion.div
                 variants={slideInFromRight(0.8)}
                 className='w-full h-full flex justify-center items-center'
             >
+                {/* 
+                  Note: The original image src was "/mainIconsdark.svg". 
+                  Ensure this asset exists or replace with a generic coding illustration if needed.
+                */}
                 <Image
                     src="/mainIconsdark.svg"
                     alt='work icons'
                     height={650}
                     width={650}
+                    className="drop-shadow-2xl"
                 />
             </motion.div>
         </motion.div>
